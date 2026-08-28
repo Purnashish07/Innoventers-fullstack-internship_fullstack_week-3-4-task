@@ -1,0 +1,11 @@
+const express = require('express');
+const { body } = require('express-validator');
+const { register, login, getMe } = require('../controllers/auth.controller');
+const { protect, authorize } = require('../middlewares/auth.middleware');
+const { validate } = require('../middlewares/validate.middleware');
+const router = express.Router();
+router.post('/register', [body('name').notEmpty(), body('email').isEmail(), body('password').isLength({min:6})], validate, register);
+router.post('/login', [body('email').isEmail(), body('password').notEmpty()], validate, login);
+router.get('/me', protect, getMe);
+router.get('/admin-dashboard', protect, authorize('admin'), (req,res)=>res.json({success:true, msg:'Admin Only'}));
+module.exports = router;
