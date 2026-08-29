@@ -17,10 +17,8 @@ const connectDB = async () => {
     }
 
     if (!uri) {
-      console.warn('MONGO_URI not set. Using in-memory MongoDB for this session.');
-      const { MongoMemoryServer } = require('mongodb-memory-server');
-      const mongod = await MongoMemoryServer.create();
-      uri = mongod.getUri();
+      console.warn('Warning: MONGO_URI environment variable is missing on production server.');
+      return;
     }
 
     const conn = await mongoose.connect(uri);
