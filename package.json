@@ -2,7 +2,16 @@
   "name": "innoventers-fullstack-week3-4",
   "version": "1.0.0",
   "private": true,
+  "workspaces": [
+    "backend",
+    "frontend"
+  ],
   "scripts": {
-    "build": "cd frontend && npm install && npm run build"
+    "build": "npm run build --workspace=frontend",
+    "start": "npm start --workspace=backend",
+    "dev": "concurrently \"npm run dev --workspace=frontend\" \"npm run dev --workspace=backend\""
+  },
+  "devDependencies": {
+    "concurrently": "^8.2.2"
   }
 }

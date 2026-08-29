@@ -1,29 +1,14 @@
 {
-  "version": 2,
-  "services": {
-    "frontend": {
-      "root": "frontend",
-      "framework": "vite"
-    },
-    "backend": {
-      "root": "backend",
-      "entrypoint": "src/app.js"
-    }
-  },
+  "buildCommand": "npm run build",
+  "outputDirectory": "frontend/dist",
   "rewrites": [
     {
       "source": "/api/(.*)",
-      "destination": {
-        "type": "service",
-        "service": "backend"
-      }
+      "destination": "/api"
     },
     {
       "source": "/(.*)",
-      "destination": {
-        "type": "service",
-        "service": "frontend"
-      }
+      "destination": "/index.html"
     }
   ]
 }
