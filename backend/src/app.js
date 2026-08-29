@@ -27,6 +27,7 @@ app.use(cors({
 app.use(express.json());
 
 app.get('/', (req,res)=>res.json({msg:'Week 3-4 Advanced API Running'}));
+app.get('/api', (req,res)=>res.json({msg:'Week 3-4 Advanced API Running'}));
 
 app.use('/api/auth', authRoutes);
 app.use('/api/projects', projectRoutes);
