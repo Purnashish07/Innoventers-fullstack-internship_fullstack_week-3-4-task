@@ -8,6 +8,8 @@ ProjectSync is a robust full-stack project management application demonstrating 
 - **Security**: JWT Authentication, bcrypt, RBAC (Role-Based Access Control)
 - **Validation**: express-validator
 
+Live Demo [View Website] https://fullstack-week3-4.vercel.app
+
 ## Major Features & Fixes
 - **Security Enhancements**: 
   - Registration payload injection prevented (users can no longer self-assign `admin` role).
